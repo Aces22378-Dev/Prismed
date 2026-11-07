@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prismed</title>
+<link rel="icon" href="cover.png">
+<!-- Link preview card (Discord, Twitter, iMessage...) -->
+<meta property="og:site_name" content="Prismed">
+<meta property="og:title" content="Prismed">
+<meta property="og:description" content="A cube that hums like it's breathing. A facility that tells you to trust only the building. Read it free.">
+<meta property="og:url" content="https://aces22378-dev.github.io/prismed/">
+<meta property="og:image" content="https://aces22378-dev.github.io/prismed/cover.png">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ff3b30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header>
+  <a class="brand" href="#">Prismed</a>
+  <nav>
+    <a href="#contents">Contents</a>
+    <a href="https://discord.gg/zEzJUzzAPj">Discord</a>
+  </nav>
+</header>
+
+<main class="landing">
+  <section class="hero">
+    <div>
+      <div class="tag">Containment log · Subject 01</div>
+      <h1>Pris<em>med</em></h1>
+      <p class="blurb">A cube that hums like it's breathing. A facility that tells you to trust only the building. And a radio that never finishes a sentence.</p>
+      <div class="cta">
+        <a href="#chapter-1" data-go="chapter-1">Start reading</a>
+        <a href="#contents" data-go="contents">Chapters</a>
+      </div>
+    </div>
+    <div class="chamber" id="chamber" aria-hidden="true">
+      <div class="readout tl">CHAMBER 03<br>GLASS · SEALED</div>
+      <div class="readout tr">ENERGY<br><span class="v" id="energy">0.00</span> kJ</div>
+      <div class="readout bl">SIGNAL<br><span class="v" id="sig">LISTENING</span></div>
+      <div class="readout br">DR. VOSS<br><span class="v">NO RESPONSE</span></div>
+      <div class="scene"><div class="halo"></div><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="stand"></div>
+    </div>
+  </section>
+
+  <div class="strip" aria-hidden="true">
+    <span>&gt; <b>TRUST THE BUILDING</b> AND ONLY THE BUILDING</span>
+    <span>&gt; CLEARANCE LEVEL <b>2</b> REQUIRED</span>
+    <span>&gt; RADIO: "ONLY TRUST YOUR—"</span>
+    <span>&gt; CONTINUE AT YOUR OWN RISK</span>
+  </div>
+
+  <section class="toc" id="contents">
+    <h2>Contents</h2>
+    <ol id="tocList"></ol>
+  </section>
+</main>
+
+<article class="reader" id="reader">
+  <div class="reader-head"><div class="tag" id="rTag"></div><h2 id="rTitle"></h2></div>
+  <div class="prose" id="rBody"></div>
+  <div class="wip" id="wip">// Draft — this chapter is still being written.</div>
+  <div class="pager"><a id="rPrev" href="#">← Prev</a><a href="#contents" data-go="contents">Contents</a><a id="rNext" href="#">Next →</a></div>
+</article>
+
+<footer><span>Prismed · Aces</span><span>Work in progress</span></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
