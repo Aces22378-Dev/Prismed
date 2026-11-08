@@ -15,8 +15,7 @@ a{color:inherit}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
   padding:14px 28px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
   background:linear-gradient(var(--bg) 40%,transparent)}
-header .brand{color:var(--ink);text-decoration:none;letter-spacing:.3em;display:flex;align-items:center;gap:12px}
-header .brand img{width:28px;height:28px;border-radius:4px}
+header .brand{color:var(--ink);text-decoration:none;letter-spacing:.3em}
 header nav{display:flex;gap:22px;align-items:center}
 header nav a{text-decoration:none}
 header nav a:hover{color:var(--ink)}
