@@ -6,10 +6,15 @@ const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','
 const cap = s => s.replace(/\b\w/g, c => c.toUpperCase());
 
 /* contents */
-$('tocList').innerHTML = CHAPTERS.map((c, i) => {
-  const words = c.parts.flatMap(pt => pt.paras).join(' ').split(/\s+/).length;
-  return `<li><a href="#chapter-${i+1}" data-go="chapter-${i+1}"><span class="n">${c.num}</span><span class="t">${esc(cap(c.title))}</span><span class="m">${Math.max(1,Math.round(words/230))} min</span></a></li>`;
-}).join('') + `<li class="soon"><a><span class="n">V</span><span class="t">Coming soon</span><span class="m">—</span></a></li>`;
+function renderToc() {
+  $('tocList').innerHTML = CHAPTERS.map((c, i) => {
+    const words = c.parts.flatMap(pt => pt.paras).join(' ').split(/\s+/).length;
+    const parts = c.pages.map((pg, p) => pg.part
+      ? `<li><a href="#chapter-${i+1}-page-${p+1}">${esc(pg.part)}</a></li>` : '').join('');
+    return `<li><a href="#chapter-${i+1}"><span class="n">${c.num}</span><span class="t">${esc(cap(c.title))}</span><span class="m">${Math.max(1,Math.round(words/230))} min</span></a>` +
+      (parts ? `<ul class="parts">${parts}</ul>` : '') + `</li>`;
+  }).join('') + `<li class="soon"><a><span class="n">V</span><span class="t">Coming soon</span><span class="m">—</span></a></li>`;
+}
 
 /* split each chapter into book pages (~250 words, never splitting a paragraph);
    every part starts on a new page, headed with its name */
@@ -27,6 +32,8 @@ CHAPTERS.forEach(c => {
     if (pg.length) flush();
   }
 });
+
+renderToc();
 
 /* routing on #name only: #chapter-2 or #chapter-2-page-3 */
 let current = -1, page = 1;
